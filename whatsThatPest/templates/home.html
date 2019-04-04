@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="news-grid grid">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-3 ml-2 mr-2 light-bg h-100">
+      <div class="row ">
+        <div class="col-md-12 col-lg-12 mb-4">
+          <div class="title-single-box">
+            <h1 class="title-single">Recognize a bug</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <form class="form-a contactForm" method="POST" action="/recognize" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <div class="card-box-d">
+                    <div class="card-img-d wrapper">
+                      <div class="file-upload">
+                        {{ form.picture(class="form-control-file", id="file") }}
+                        <i class="fa fa-image"></i>
+                      </div>
+                    </div>
+                    <div class="card-img-d wrapper">
+                      <p class="pl-4 pr-4 pt-2 font-weight-bold">Choose a file to upload by clicking on the image icon
+                        above
+                        <button type="button" class="btn btn-tool pt-0 pb-0 pl-1 pr-0" data-toggle="tooltip"
+                          data-placement="right"
+                          title="The images you upload may be stored for the purpose of improving the underlying artificial intelligence service">
+                          <i class="fa fa-info-circle"></i>
+                        </button>
+                      </p>
+                      {% if form.picture.errors %}
+                      {% for error in form.picture.errors %}
+                      <span class="text-danger">{{ error }}</span></br>
+                      {% endfor %}
+                      {% endif %}
+                    </div>
+                    <div class="card-img-d wrapper">
+                      {{ form.submit(class="btn btn-a mb-2") }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 mr-2">
+      <div class="row">
+        <div class="col-md-12 col-lg-8 col-sm-8 col-8 mb-4">
+          <div class="title-single-box">
+            <h1 class="title-single">News Feed</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4 col-sm-4 col-4 mb-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="/post/new">New Post</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        {% if post_count == 0 %}
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="card border-success mb-3">
+            <div class="card-header row mr-0 ml-0">
+              You're all caught up!
+            </div>
+            <div class="card-body text-success">
+              You can add a post by clicking the 'New Post' option
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        {% endif %}
+        {% for post in posts %}
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="card border-success mb-3">
+            <div class="card-header row mr-0 ml-0">
+              <div class="col-2 col-md-2 p-0">
+                <img class="rounded-circle article-img w-75 h-100 mx-auto d-block"
+                  src="{{ url_for('static', filename='profile_pics/' + post.author.profile_image) }}">
+              </div>
+              <div class="col-9 col-md-9 pt-3 pl-0">
+                <a class="mr-2" href="#">{{ post.author.username }}</a>
+              </div>
+              <div class="col-1 col-md-1 pt-3 pl-0">
+                {% if post.author == current_user %}
+                <div>
+                  <form action="{{ url_for('posts.delete_post', post_id=post.id) }}" method="POST">
+                    <button type="submit" class="btn-del"><i class="fa fa-trash-alt"></i></button>
+                  </form>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="card-body text-success">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.content }}</p>
+              {% if post.post_image %}
+              <img class="card-img-top mx-auto d-block"
+                src="{{ url_for('static', filename='post_pics/' + post.post_image) }}"
+                style="max-width: 500px; height: auto;" alt="Card image cap">
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 mb-4">
+          <div class="title-single-box">
+            <h1 class="title-single">Pesticide offers</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12 mb-4">
+          <img class="h-100 w-100 pl-4 pesticide" src="{{ url_for('static', filename='img/pesti1.jpg') }}" alt="">
+        </div>
+        <div class="col-md-12 col-lg-12 mb-4">
+          <img class="h-100 w-100 pl-4 pesticide" src="{{ url_for('static', filename='img/pesti2.jpeg') }}" alt="">
+        </div>
+        <div class="col-md-12 col-lg-12 mb-4">
+          <img class="h-100 w-100 pl-4  pesticide" src="{{ url_for('static', filename='img/pesti2.jpg') }}" alt="">
+        </div>
+        <div class="col-md-12 col-lg-12 mb-4">
+          <img class="h-100 w-100 pl-4  pesticide" src="{{ url_for('static', filename='img/pesti3.jpeg') }}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

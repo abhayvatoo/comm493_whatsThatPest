@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="title-single-box">
+                <h1 class="title-single">Login<span class="color-b">.</span></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="login-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+            <div class="col-md-12 col-lg-12">
+                <form class="form-a contactForm" method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                {{ form.email.label(class="form-control-label") }}
+                                {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-lg form-control-a is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.email(class="form-control form-control-lg form-control-a") }}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form.password.label(class="form-control-label") }}
+                                {% if form.password.errors %}
+                                {{ form.password(class="form-control form-control-lg form-control-a is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.password(class="form-control form-control-lg form-control-a") }}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="form-check">
+                                    {{ form.remember(class="form-check-input") }}
+                                    {{ form.remember.label(class="form-check-label") }}
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            {{ form.submit(class="btn btn-a") }}
+                            <small class="text-muted ml-2">
+                                <a href="{{ url_for('users.reset_request') }}">Forgot Password?</a>
+                            </small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{{ url_for('users.register') }}">Sign Up Now</a>
+            </small>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

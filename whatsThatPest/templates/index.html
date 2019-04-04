@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>What's That Pest</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <!-- Libraries CSS Files -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lib/animate/animate.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lib/ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}">
+
+  <!-- Main Stylesheet File -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <!--/ Nav Start /-->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <div class="row w-100">
+        <div class="col-2 col-sm-5 col-md-5 col-lg-5"></div>
+        <div class="col-8 col-sm-2 col-md-2 col-lg-2">
+          <a class="text-brand" href="/index">What'sThat<span class="color-b">Pest?</span></a>
+        </div>
+        <div class="col-2 col-sm-5 col-md-5 col-lg-5"></div>
+      </div>
+
+    </div>
+  </nav>
+  <!--/ Nav End /-->
+  <div class="row h-100 m-0 pt-4">
+    <div class="col-12 col-sm-12 col-md-5 col-lg-4 light-bg">
+      <div class="row intro-bug h-100">
+        <div class="col-md-12 col-lg-12">
+          <div class="title-single-box">
+            <h1 class="title-single">Recognize a bug</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <form class="form-a contactForm" method="POST" action="/recognize" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <div class="card-box-d">
+                    <div class="card-img-d wrapper">
+                      <div class="file-upload">
+                        {{ form.picture(class="form-control-file", id="file") }}
+                        <i class="fa fa-image"></i>
+                      </div>
+                    </div>
+                    <div class="card-img-d wrapper">
+                      {% if form.picture.errors %}
+                      <p>{{ form.picture.data.filename}}</p>
+                      {% endif %}
+                      <p class="pl-4 pr-4 pt-2 font-weight-bold">Choose a file to upload by clicking on the image icon
+                        above
+                        <button type="button" class="btn btn-tool pt-0 pb-0 pl-1 pr-0" data-toggle="tooltip"
+                          data-placement="right"
+                          title="The images you upload may be stored for the purpose of improving the underlying artificial intelligence service">
+                          <i class="fa fa-info-circle"></i>
+                        </button>
+                      </p>
+                      {% if form.picture.errors %}
+                      {% for error in form.picture.errors %}
+                      <span class="text-danger">{{ error }}</span></br>
+                      {% endfor %}
+                      {% endif %}
+                    </div>
+                    <div class="card-img-d wrapper">
+                      {{ form.submit(class="btn btn-a mb-2") }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
+      <!--/ Intro Single star /-->
+      <section class="intro-index">
+        <div class="container">
+          <div class="row h-100">
+            <div class="col-md-12 col-lg-12">
+              <div class="title">
+                <h1 class="title-single">What's That Pest<span class="color-b">?</span></h1>
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-lg-3">
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="login-signup-button">
+                <a href="/login" class="btn btn-b btn-lg btn-block">Login</a>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-lg-3">
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="login-signup-button">
+                <a href="/register" class="btn btn-b btn-lg btn-block">Sign Up</a>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Intro Single End /-->
+    </div>
+  </div>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="{{ url_for('static', filename='lib/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/jquery/jquery-migrate.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/popper/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/scrollreveal/scrollreveal.min.js') }}"></script>
+
+  <!-- Main Javascript File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

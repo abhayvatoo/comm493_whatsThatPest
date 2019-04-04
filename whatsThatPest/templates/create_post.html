@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="title-single-box">
+                <h1 class="title-single">New Post<span class="color-b">.</span></h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="login-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <form class="form-a contactForm" method="POST" action="" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                {{ form.title.label(class="form-control-label") }}
+                                {% if form.title.errors %}
+                                {{ form.title(class="form-control form-control-lg form-control-a is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.title.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.title(class="form-control form-control-lg form-control-a") }}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form.content.label(class="form-control-label") }}
+                                {% if form.content.errors %}
+                                {{ form.content(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.content.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.content(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form.picture.label() }}
+                                {{ form.picture(class="form-control-file") }}
+                                {% if form.picture.errors %}
+                                {% for error in form.picture.errors %}
+                                <span class="text-danger">{{ error }}</span></br>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            {{ form.submit(class="btn btn-a") }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div class="content-section">
+
+</div>
+{% endblock content %}

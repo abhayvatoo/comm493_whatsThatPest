@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="title-single-box">
+                <h1 class="title-single">Sign Up<span class="color-b">.</span></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="register-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <form class="form-a contactForm" method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                {{ form.username.label(class="form-control-label") }}
+
+                                {% if form.username.errors %}
+                                {{ form.username(class="form-control form-control-lg form-control-a is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.username(class="form-control form-control-lg form-control-a") }}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form.email.label(class="form-control-label") }}
+                                {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-lg form-control-a is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.email(class="form-control form-control-lg form-control-a") }}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form.password.label(class="form-control-label") }}
+                                {% if form.password.errors %}
+                                {{ form.password(class="form-control form-control-lg form-control-a is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.password(class="form-control form-control-lg form-control-a") }}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form.confirm_password.label(class="form-control-label") }}
+                                {% if form.confirm_password.errors %}
+                                {{ form.confirm_password(class="form-control form-control-lg form-control-a is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.confirm_password.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.confirm_password(class="form-control form-control-lg form-control-a") }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            {{ form.submit(class="btn btn-a") }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="{{ url_for('users.login') }}">Sign In</a>
+            </small>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
