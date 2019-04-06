@@ -14,7 +14,7 @@ posts = Blueprint('posts', __name__)
 #this decorater is imported from flask_login
 @login_required
 def new_post():
-    #create the instance of new post creation form for the page defined in the corresponding form.py file
+    #create the instance of new post creation form for the page defined in the corresponding forms.py file
     form = PostForm()
     #form has basic validation defined
     #if the form is valid
