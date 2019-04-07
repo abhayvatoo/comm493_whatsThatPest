@@ -12,4 +12,5 @@ Currently the application can be accessed using http://whatsthatpest.mybluemix.n
 3. Once all the dependencies are installed successfully, run the main script to start application:
 
    ```python3 run.py```
-4. By default the application will run on port 5000 `http://localhost:5000` but this can be customized
+4. By default the application will run on port 5000 but this can be customized
+5. Open [`http://localhost:5000`] for accessing the application
