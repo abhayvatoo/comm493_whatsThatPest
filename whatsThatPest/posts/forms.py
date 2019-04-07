@@ -3,6 +3,7 @@ from wtforms import StringField, SubmitField, TextAreaField
 from flask_wtf.file import FileField, FileAllowed
 from wtforms.validators import DataRequired
 
+
 #create form for post creation functionality
 #when user uploads new post all the below information is created and stored in database
 class PostForm(FlaskForm):

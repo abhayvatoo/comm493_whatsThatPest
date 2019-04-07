@@ -1,7 +1,9 @@
+<!--This page extends all the properties of the layout page-->
 {% extends "layout.html" %}
 {% block content %}
 <section class="news-grid grid">
   <div class="row">
+    <!--Flash banner section start-->
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
@@ -17,13 +19,19 @@
     </div>
     <div class="col-md-4">
     </div>
+    <!--Flash banner section end-->
+
+    <!--Bug recognition section start-->
     <div class="col-md-3 ml-2 mr-2 light-bg h-100">
       <div class="row ">
+        <!--Section heading start-->
         <div class="col-md-12 col-lg-12 mb-4">
           <div class="title-single-box">
             <h1 class="title-single">Recognize a bug</h1>
           </div>
         </div>
+        <!--Section heading end-->
+
         <div class="col-md-12 col-lg-12">
           <form class="form-a contactForm" method="POST" action="/recognize" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
@@ -46,6 +54,7 @@
                           <i class="fa fa-info-circle"></i>
                         </button>
                       </p>
+                      <!--Field validation errors will be rendered in this html if present-->
                       {% if form.picture.errors %}
                       {% for error in form.picture.errors %}
                       <span class="text-danger">{{ error }}</span></br>
@@ -63,13 +72,20 @@
         </div>
       </div>
     </div>
+    <!--Bug recognition section end-->
+
+    <!--News feed section start-->
     <div class="col-md-5 mr-2">
       <div class="row">
+        <!--Section heading start-->
         <div class="col-md-12 col-lg-8 col-sm-8 col-8 mb-4">
           <div class="title-single-box">
             <h1 class="title-single">News Feed</h1>
           </div>
         </div>
+        <!--Section heading end-->
+
+        <!--Section content start-->
         <div class="col-md-12 col-lg-4 col-sm-4 col-4 mb-4">
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
@@ -79,6 +95,8 @@
             </ol>
           </nav>
         </div>
+
+        <!--This section will be visible if there are no posts in users news feed-->
         {% if post_count == 0 %}
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -93,6 +111,9 @@
         </div>
         <div class="col-md-1"></div>
         {% endif %}
+
+        <!--This section will be visible if there are posts in users news feed-->
+        <!--The markup will be repeated for each post in the list of posts in user's news feed-->
         {% for post in posts %}
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -128,15 +149,23 @@
         </div>
         <div class="col-md-1"></div>
         {% endfor %}
+        <!--Section content end-->
       </div>
     </div>
+    <!--News feed section end-->
+
+    <!--Pesticide offers section start-->
     <div class="col-md-3">
       <div class="row">
+        <!--Section heading start-->
         <div class="col-md-12 col-lg-12 mb-4">
           <div class="title-single-box">
             <h1 class="title-single">Pesticide offers</h1>
           </div>
         </div>
+        <!--Section heading end-->
+
+        <!--Section content start-->
         <div class="col-md-12 col-lg-12 mb-4">
           <img class="h-100 w-100 pl-4 pesticide" src="{{ url_for('static', filename='img/pesti1.jpg') }}" alt="">
         </div>
@@ -149,8 +178,10 @@
         <div class="col-md-12 col-lg-12 mb-4">
           <img class="h-100 w-100 pl-4  pesticide" src="{{ url_for('static', filename='img/pesti3.jpeg') }}" alt="">
         </div>
+        <!--Section content end-->
       </div>
     </div>
+    <!--Pesticide offers section end-->
   </div>
 </section>
 {% endblock content %}

@@ -1,5 +1,7 @@
+<!--This page extends all the properties of the layout page-->
 {% extends "layout.html" %}
 {% block content %}
+<!--Page heading start-->
 <div class="container">
     <div class="row">
         <div class="col-md-12 col-lg-12">
@@ -9,6 +11,9 @@
         </div>
     </div>
 </div>
+<!--Page heading end-->
+
+<!--Register form start-->
 <section class="register-form">
     <div class="container">
         <div class="row">
@@ -19,7 +24,7 @@
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 {{ form.username.label(class="form-control-label") }}
-
+                                <!--Field validation errors will be rendered in this html if present-->
                                 {% if form.username.errors %}
                                 {{ form.username(class="form-control form-control-lg form-control-a is-invalid") }}
                                 <div class="invalid-feedback">
@@ -33,6 +38,7 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 {{ form.email.label(class="form-control-label") }}
+                                <!--Field validation errors will be rendered in this html if present-->
                                 {% if form.email.errors %}
                                 {{ form.email(class="form-control form-control-lg form-control-a is-invalid") }}
                                 <div class="invalid-feedback">
@@ -46,6 +52,7 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 {{ form.password.label(class="form-control-label") }}
+                                <!--Field validation errors will be rendered in this html if present-->
                                 {% if form.password.errors %}
                                 {{ form.password(class="form-control form-control-lg form-control-a is-invalid") }}
                                 <div class="invalid-feedback">
@@ -59,6 +66,7 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 {{ form.confirm_password.label(class="form-control-label") }}
+                                <!--Field validation errors will be rendered in this html if present-->
                                 {% if form.confirm_password.errors %}
                                 {{ form.confirm_password(class="form-control form-control-lg form-control-a is-invalid") }}
                                 <div class="invalid-feedback">
@@ -89,5 +97,5 @@
         </div>
     </div>
 </section>
-
+<!--Register form end-->
 {% endblock content %}

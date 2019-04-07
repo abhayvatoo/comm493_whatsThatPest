@@ -1,9 +1,10 @@
+<!--This page extends all the properties of the layout page-->
 {% extends "layout.html" %}
 {% block content %}
+<!--Page heading start-->
 <div class="container mb-3">
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
-
         </div>
         <div class="col-12 col-sm-5 col-md-5 col-lg-5">
             {% with messages = get_flashed_messages(with_categories=true) %}
@@ -17,7 +18,6 @@
             {% endwith %}
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
-
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="title-single-box">
@@ -26,6 +26,9 @@
         </div>
     </div>
 </div>
+<!--Page ending end-->
+
+<!--User Info section start-->
 <div class="container">
     <div class="content-section row">
         <div class="media col-12 col-sm-12 col-md-12 col-lg-12">
@@ -42,7 +45,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
                     {{ form.username.label(class="form-control-label") }}
-
+                    <!--Field validation errors will be rendered in this html if present-->
                     {% if form.username.errors %}
                     {{ form.username(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -56,6 +59,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
                     {{ form.email.label(class="form-control-label") }}
+                    <!--Field validation errors will be rendered in this html if present-->
                     {% if form.email.errors %}
                     {{ form.email(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -70,6 +74,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
                     {{ form.picture.label() }}
                     {{ form.picture(class="form-control-file") }}
+                    <!--Field validation errors will be rendered in this html if present-->
                     {% if form.picture.errors %}
                     {% for error in form.picture.errors %}
                     <span class="text-danger">{{ error }}</span></br>
@@ -77,14 +82,14 @@
                     {% endif %}
                 </div>
             </div>
-            </fieldset>
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
-                    {{ form.submit(class="btn btn-a") }}
-                </div>
+        </fieldset>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
+                {{ form.submit(class="btn btn-a") }}
             </div>
+        </div>
     </form>
 </div>
 </div>
-
+<!--User info section end-->
 {% endblock content %}

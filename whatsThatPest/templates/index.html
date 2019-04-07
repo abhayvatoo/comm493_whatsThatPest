@@ -19,13 +19,13 @@
   <link rel="stylesheet" type="text/css"
     href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}">
 
-  <!-- Main Stylesheet File -->
+  <!-- Main Stylesheet Files -->
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-  <!--/ Nav Start /-->
+  <!--Nav Bar start-->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <div class="row w-100">
@@ -38,8 +38,11 @@
 
     </div>
   </nav>
-  <!--/ Nav End /-->
+  <!--Nav Bar end-->
+
+  <!--Page content start-->
   <div class="row h-100 m-0 pt-4">
+    <!--Bug Recognition sidebar start-->
     <div class="col-12 col-sm-12 col-md-5 col-lg-4 light-bg">
       <div class="row intro-bug h-100">
         <div class="col-md-12 col-lg-12">
@@ -61,9 +64,7 @@
                       </div>
                     </div>
                     <div class="card-img-d wrapper">
-                      {% if form.picture.errors %}
-                      <p>{{ form.picture.data.filename}}</p>
-                      {% endif %}
+                      <!--Field validation errors will be rendered in this html if present-->
                       <p class="pl-4 pr-4 pt-2 font-weight-bold">Choose a file to upload by clicking on the image icon
                         above
                         <button type="button" class="btn btn-tool pt-0 pb-0 pl-1 pr-0" data-toggle="tooltip"
@@ -72,6 +73,7 @@
                           <i class="fa fa-info-circle"></i>
                         </button>
                       </p>
+                      <!--Field validation errors will be rendered in this html if present-->
                       {% if form.picture.errors %}
                       {% for error in form.picture.errors %}
                       <span class="text-danger">{{ error }}</span></br>
@@ -87,10 +89,11 @@
             </fieldset>
           </form>
         </div>
-
       </div>
-
     </div>
+    <!--Bug Recognition sidebar end-->
+
+    <!--Main page content start-->
     <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
       <!--/ Intro Single star /-->
       <section class="intro-index">
@@ -129,6 +132,7 @@
       </section>
       <!--/ Intro Single End /-->
     </div>
+    <!--Main page content end-->
   </div>
   <div id="preloader"></div>
 
@@ -145,5 +149,4 @@
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
-
 </html>

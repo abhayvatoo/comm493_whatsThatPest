@@ -1,5 +1,7 @@
+<!--This page extends all the properties of the layout page-->
 {% extends "layout.html" %}
 {% block content %}
+<!--This page containes reset password form-->
 <div class="container">
     <div class="row">
         <div class="content-section col-12 col-sm-12 col-md-12 col-lg-12">
@@ -9,6 +11,7 @@
                     <legend class="border-bottom mb-4">Reset Password</legend>
                     <div class="form-group">
                         {{ form.password.label(class="form-control-label") }}
+                        <!--Field validation errors will be rendered in this html if present-->
                         {% if form.password.errors %}
                         {{ form.password(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">

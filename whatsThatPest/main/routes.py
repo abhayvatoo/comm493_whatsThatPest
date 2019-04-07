@@ -7,20 +7,19 @@ from whatsThatPest.main.utils import save_picture, bug_recognition
 from whatsThatPest.models import Bug
 from whatsThatPest.Bug import bug_info
 
-#create main module for the core functionality of the app
+
+#this will create main module for the core functionality of the app
 main = Blueprint('main', __name__)
 
 #This connects this Python File to the root directory of our website
-#If we wanted to connect to a different website we would say
-#@app.route('/about_Page')
-#This function is now mapped to our webpage
+#This function is now mapped to the index page of our webpage
 #This has to return something to the webpage
 @main.route("/")
 #define route for index page
 #this route is same as root route because the root landing page is same as index page
 @main.route("/index")
 def index():
-    #current_user is imported from flask_login package which contains all the information of current user's credentials
+    #current_user is imported from flask_login package which contains all the information of current user's session
     #if the user is already logged in then we redirect to the home page 
     if current_user.is_authenticated:
         #redirects the user to the home page after successful authentication

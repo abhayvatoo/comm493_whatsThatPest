@@ -61,9 +61,5 @@
 			$('.scrolltop-mf').fadeOut(1000, "easeInOutExpo");
 		}
 	});
-
-
-			
-		
-
+	
 })(jQuery);

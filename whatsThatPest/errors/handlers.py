@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-#create error module to register error handlers
+#this will create 'errors' module to register error handlers
 errors = Blueprint('errors', __name__)
 
 #register handler for 404 error

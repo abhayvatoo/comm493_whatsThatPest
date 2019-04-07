@@ -1,3 +1,6 @@
+<!--This page acts as the base layout for all other pages-->
+<!--All the other partial pages are loaded in this page on change of url/page reload-->
+<!--This page contains the navbar, footer, preloader etc.-->
 <!DOCTYPE html>
 <html>
 
@@ -21,13 +24,12 @@
   <link rel="stylesheet" type="text/css"
     href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}">
 
-  <!-- Main Stylesheet File -->
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+  <!--Main Stylesheet File-->
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-  <!--/ Nav Start /-->
+  <!--Nav Bar start-->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
     <div class="container">
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
@@ -57,13 +59,18 @@
       </div>
     </div>
   </nav>
-  <!--/ Nav End /-->
+  <!--Nav Bar end-->
+
+  <!--Page content section start-->
   <section class="intro-single">
     <main role="main" class="container-fluid">
+      <!--All the content of partial pages is rendered in this block-->
       {% block content %}{% endblock %}
     </main>
   </section>
-  <!--/ footer Start /-->
+  <!--Page section end-->
+
+  <!--Footer section start-->
   <section class="section-footer">
     <div class="container">
       <div class="row">
@@ -82,6 +89,8 @@
       </div>
     </div>
   </section>
+  <!--Footer section end-->
+  <!--Footer start-->
   <footer>
     <div class="container">
       <div class="row">
@@ -93,11 +102,14 @@
       </div>
     </div>
   </footer>
-  <!--/ Footer End /-->
+  <!--Footer End-->
 
+  <!--This appears when user has scrolled down from top of the page-->
+  <!--If user clicks on this button page is scrolled to top-->
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
 
+  <!--Preloader appears before page is loaded-->
+  <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
   <script src="{{ url_for('static', filename='lib/jquery/jquery.min.js') }}"></script>

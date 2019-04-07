@@ -5,6 +5,7 @@ from flask import current_app
 from watson_developer_cloud import VisualRecognitionV3
 import json
 
+
 #this helper functions stores the image on file system and we pass in the bug image as argument
 def save_picture(bug_picture):
     #randon hex is generated to prevent the case of two files having same name
