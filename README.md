@@ -6,8 +6,8 @@ Currently the application can be accessed using http://whatsthatpest.mybluemix.n
 
 ## Runing the Application on local machine
 1. Install Python version 3.x.x
-2. There is requirements.txt file on the root directory of the project. Using pip install all the dependencies:
-   pip3 install -r requirements.txt
-3. Once all the requirements are installed successfully, run the main script to start application:
-   python3 run.py
+2. There is a `requirements.txt` file in the root directory of the project. Using pip install all the dependencies:
+   ```pip3 install -r requirements.txt```
+3. Once all the dependencies are installed successfully, run the main script to start application:
+   ```python3 run.py```
 4. By default the application will run on port 5000 but this can be customized
