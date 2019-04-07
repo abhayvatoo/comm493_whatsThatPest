@@ -1,5 +1,5 @@
 # What's That Pest
-What's That Pest is a web application developed using IBM watson's visual recognition service. This project is a part of academic acitivity for COMM493 course at Smith School of Bussiness, Queen's University and developed by TEAM 4 `Abhay Vatoo, Divya Makkar, Janet Song, Jeff Misner`.
+What's That Pest is a web application developed using IBM watson's visual recognition service. This project is a part of academic acitivity for `COMM493 course at Smith School of Bussiness, Queen's University` and developed by TEAM 4 `Abhay Vatoo, Divya Makkar, Janet Song, Jeff Misner`.
 
 ## Accessing the Application
 Currently the application can be accessed using http://whatsthatpest.mybluemix.net/ link. This application is hosted on IBM cloud
